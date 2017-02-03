@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table style="border: solid 1px black">
+            <thead>
+                <tr>
+                    <th style="border: solid 1px black"> id </thstyle="border:>
+                    <th style="border: solid 1px black"> nome </th>
+                    <th style="border: solid 1px black"> descricao </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Categorias)
+                {
+                    <tr>
+                        <td style="border: solid 1px black">@item.Id</td>
+                        <td style="border: solid 1px black">@item.Nome</td>
+                        <td style="border: solid 1px black">@item.Descricao</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table> 
+    </div>
+</body>
+</html>
