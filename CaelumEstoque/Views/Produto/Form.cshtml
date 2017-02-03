@@ -14,30 +14,37 @@
 <body>
     <div> 
         <form action="/Produto/Adiciona" method="post">
+            <span style="color: red">@Html.ValidationMessage("produto.Invalido")</span><br />
+
             <label for="nome">nome</label><br/>
-            <input id="nome" name="Nome" /><br /><br />
+            <input id="nome" name="produto.Nome" value="@ViewBag.produto.Nome"/><br />
+            <span style="color: red">@Html.ValidationMessage("produto.Nome")</span><br />
 
             <label for="preco">preço</label><br />
-            <input id="preco" name="Preco" /><br /><br />
+            <input id="preco" name="produto.Preco" value="@ViewBag.produto.Preco"/><br />
+            <span style="color: red">@Html.ValidationMessage("produto.Preco")</span><br />
 
             <label for="quantidade">Quantidade</label><br />
-            <input id="quantidade" name="Quantidade" /><br /><br />
+            <input id="quantidade" name="produto.Quantidade" value="@ViewBag.produto.Quantidade"/><br />
+            <span style="color: red">@Html.ValidationMessage("produto.Quantidade")</span><br />
 
             <label for="descricao">Descricao</label><br />
-            <input id="descricao" name="Descricao" /><br /><br />
+            <input id="descricao" name="produto.Descricao" value="@ViewBag.produto.Descricao"/><br />
+            <span style="color: red">@Html.ValidationMessage("produto.Descricao")</span><br />
 
             <label for="categoria">Categoria</label><br />
-            <select id="categoria">
+            <select id="categoria" name="produto.CategoriaId">
                 @foreach (var item in ViewBag.Categorias)
                 {
-                    <option value="@item.Id">@item.Nome</option>
+                    <option value="@item.Id" selected="@item.Id.Equals(ViewBag.produto.CategoriaId)">@item.Nome</option>
                 }
 
-            </select> <br /><br />
+            </select> <br />
+            <span style="color: red">@Html.ValidationMessage("produto.Categoria")</span><br /><br />
             <input type="submit" value="Cadastrar" />
 
 
-        </form>
+</form>
     </div>
 </body>
 </html>
