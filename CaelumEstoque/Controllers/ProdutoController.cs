@@ -51,7 +51,7 @@ namespace CaelumEstoque.Controllers
             }
         }
         [Route("produtos/{id}", Name ="VizualizaProduto")]
-        public ActionResult Vizualiza(int id)
+        public ActionResult Vizualiza(int id) 
         {
             ProdutosDAO dao = new ProdutosDAO();
             Produto produto = dao.BuscaPorId(id);
