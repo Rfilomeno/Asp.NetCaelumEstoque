@@ -10,6 +10,7 @@ namespace CaelumEstoque.Controllers
     {
         //
         // GET: /Home/
+        [Route("Home", Name = "Home")]
         public ActionResult Index()
         {
             return View();

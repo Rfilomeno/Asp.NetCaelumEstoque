@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Css/Site.css" />
+    <title>_Layout</title>
+</head>
+<body>
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+            <li>@Html.RouteLink("Home", "Home")</li>
+            <li>@Html.RouteLink("Produtos", "ListaProdutos")</li>
+            <li>@Html.RouteLink("Categorias", "ListaCategorias")</li>
+            <li>@Html.ActionLink("Usuários", "Index", "Usuario")</li>
+            
+        </ul>
+        <h3 class="muted-text">Caelum Estoque</h3>
+
+    </div>
+    <div class="container"> 
+        @RenderBody()
+    </div>
+</body>
+</html>
