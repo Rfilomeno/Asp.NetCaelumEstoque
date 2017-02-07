@@ -7,6 +7,7 @@
                     <th> id </th>
                     <th> nome </th>
                     <th> quantidade </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -15,9 +16,23 @@
                     <tr>
                         <td>@item.Id</td>
                         <td> @Html.RouteLink(item.Nome, "VizualizaProduto", new {id = item.Id })</td>
-                        <td>@item.Quantidade</td>
+                        <td id="quantidade@(item.Id)">@item.Quantidade</td>
+                        <td> <a href="#" onclick="decrementa(@item.Id)">decrementar</a></td>
                     </tr>
                 }
                 
             </tbody>
         </table> 
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    function decrementa(produtoId){
+        var url = "@Url.Action("DecrementaQtd", "Produto")";
+        $.post(url, {id: produtoId}, atualiza)
+        
+    }
+
+    function atualiza(resposta){
+        var elemento = $("#quantidade"+resposta.Id);
+        elemento.html(resposta.Quantidade);
+    }
+</script>
