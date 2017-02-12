@@ -7,9 +7,11 @@ using CaelumEstoque;
 using CaelumEstoque.DAO;
 using CaelumEstoque.Models;
 using CaelumEstoque.Controllers;
+using CaelumEstoque.Filtros;
 
 namespace CaelumEstoque.Controllers
 {
+    [AutorizacaoFilter]
     public class ProdutoController : Controller
     {
         // GET: Produto
@@ -29,6 +31,7 @@ namespace CaelumEstoque.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Adiciona(Produto produto)
         {
             int idproduto = 1;
